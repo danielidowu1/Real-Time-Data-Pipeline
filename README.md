@@ -137,7 +137,7 @@ SELECT * FROM spark_streams.created_users LIMIT 10;
 
 <img width="1023" height="340" alt="Screenshot 2026-05-22 041216" src="https://github.com/user-attachments/assets/e888d5b9-6d0e-40ea-9fef-a705de3d5a6f" />
 
-##Monitoring
+## Monitoring
 ### Airflow
 
 - Monitor DAG execution status.
