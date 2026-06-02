@@ -82,7 +82,7 @@ All services are deployed and managed through Docker Compose.
 ## How to Run
 
 ### Clone Repository
-git clone https://github.com/yourusername/realtime-user-streaming-pipeline.git
+git clone https://github.com/danielidowu1/Real-Time-Data-Pipeline.git
 
 - cd realtime-user-streaming-pipeline
 ### Build Containers
