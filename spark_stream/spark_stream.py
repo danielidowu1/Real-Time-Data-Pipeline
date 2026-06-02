@@ -6,6 +6,9 @@ import os
 KAFKA_BOOTSTRAP = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'broker:29092')
 CHECKPOINT_DIR  = '/opt/spark_stream/checkpoints/run_v1' #'/tmp/checkpoints/created_users'
 
+CASSANDRA_USER = os.getenv('CASSANDRA_USER', 'cassandra')
+CASSANDRA_PASS = os.getenv('CASSANDRA_PASSWORD', 'cassandra')
+
 def create_spark_connection():
     return SparkSession.builder \
         .appName('SparkDataStreaming') \
@@ -14,8 +17,8 @@ def create_spark_connection():
             'com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,'
             'org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0') \
         .config('spark.cassandra.connection.host', 'cassandra') \
-        .config('spark.cassandra.auth.username', 'cassandra') \
-        .config('spark.cassandra.auth.password', 'cassandra') \
+        .config('spark.cassandra.auth.username', CASSANDRA_USER) \
+        .config('spark.cassandra.auth.password', CASSANDRA_PASS) \
         .config('spark.cassandra.output.batch.size.bytes', '1024') \
         .config('spark.cassandra.output.concurrent.writes', '1') \
         .getOrCreate()
