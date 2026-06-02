@@ -76,6 +76,30 @@ Processed records are stored in Cassandra for high-write throughput and horizont
 
 All services are deployed and managed through Docker Compose.
 
+## Project Structure
+root/
+│
+├── DAG/
+│   └── Kafka_stream.py
+│
+├── spark_stream/
+│   └── spark_stream.py
+│
+├── cassandra/
+│   └── create_tables.cql
+│
+├── requirements.txt
+│
+├── dockerfile.spark
+│
+├── .gitignore
+│
+├── Dockerfile
+│
+├── docker-compose.yml
+│
+└── README.md
+
 ## How to Run
 
 ### Clone Repository
