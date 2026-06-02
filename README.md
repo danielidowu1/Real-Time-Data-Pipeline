@@ -77,7 +77,7 @@ Processed records are stored in Cassandra for high-write throughput and horizont
 All services are deployed and managed through Docker Compose.
 
 ## Project Structure
-<img width="172" height="336" alt="Screenshot 2026-06-02 075047" src="https://github.com/user-attachments/assets/9b2f6b80-9a67-4658-a6e8-04c6804a6f9b" />
+<img width="129" height="297" alt="Screenshot 2026-06-02 080214" src="https://github.com/user-attachments/assets/a7590002-a936-41ed-a195-b8ed17a8ce2a" />
 
 ## How to Run
 
