@@ -79,31 +79,6 @@ All services are deployed and managed through Docker Compose.
 ## Project Structure
 <img width="172" height="336" alt="Screenshot 2026-06-02 075047" src="https://github.com/user-attachments/assets/9b2f6b80-9a67-4658-a6e8-04c6804a6f9b" />
 
-
-
-root/
-│
-├── DAG/
-│   └── Kafka_stream.py
-│
-├── spark_stream/
-│   └── spark_stream.py
-│
-├── cassandra/
-│   └── create_tables.cql
-│
-├── requirements.txt
-│
-├── dockerfile.spark
-│
-├── .gitignore
-│
-├── Dockerfile
-│
-├── docker-compose.yml
-│
-└── README.md
-
 ## How to Run
 
 ### Clone Repository
