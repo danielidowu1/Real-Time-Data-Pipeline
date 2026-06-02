@@ -1,86 +1,182 @@
 # Real-Time-Data-Pipeline with Airflow, Kaafka, Spark & Cassandra
-Real-time streaming data pipeline using Airflow, Kafka, Spark Structured Streaming, Cassandra, and Docker.
+### Real-Time User Data Streaming Pipeline
+## Overview
 
-This project demonstrates a real-time streaming data pipeline built using Apache Airflow, Apache Kafka, Apache Spark Structured Streaming, and Cassandra.
+This project implements a real-time end-to-end data streaming platform using Apache Airflow, Apache Kafka, Apache Spark, Cassandra, PostgreSQL, Docker, and Confluent components.
 
-The pipeline streams real-time user data from an API into Kafka, processes the stream using Spark, and stores the transformed data into Cassandra.
+The solution continuously ingests user data from an external API, streams the data through Kafka, processes the stream using Spark Structured Streaming, and persists the transformed records into Cassandra for real-time analytics and downstream consumption.
+
+The entire platform is containerized using Docker Compose, enabling reproducible deployments and simplified environment management.
 
 ## Architecture
 
-API → Airflow → Kafka → Spark Streaming → Cassandra
+                   ┌─────────────────┐
+                   │  External API   │
+                   │ (Random User)   │
+                   └────────┬────────┘
+                            │
+                            ▼
+                   ┌─────────────────┐
+                   │ Apache Airflow  │
+                   │ DAG Scheduler   │
+                   └────────┬────────┘
+                            │
+                            ▼
+                   ┌─────────────────┐
+                   │ Apache Kafka    │
+                   │ users_created   │
+                   │     Topic       │
+                   └────────┬────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │ Apache Spark        │
+                 │ Structured Streaming│
+                 └────────┬────────────┘
+                          │
+                          ▼
+                 ┌─────────────────────┐
+                 │ Apache Cassandra    │
+                 │ created_users Table │
+                 └─────────────────────┘
 
-![Architecture](screenshots/architecture.png)
 
 ## Technologies
-
-- Apache Airflow
-- Apache Kafka
-- Apache Spark
-- Cassandra
-- Docker
-- Python
-- Kafka Streams
+| Component       | Purpose                          |
+| --------------- | -------------------------------- |
+| Python          | Data ingestion and orchestration |
+| Apache Airflow  | Workflow orchestration           |
+| PostgreSQL      | Airflow metadata database        |
+| Apache Kafka    | Event streaming platform         |
+| Schema Registry | Schema management                |
+| Apache Spark    | Stream processing                |
+| Cassandra       | NoSQL data storage               |
+| Kafdrop         | Kafka monitoring UI              |
+| Docker Compose  | Container orchestration          |
 
 ## Features
 
-- Real-time API data ingestion
-- Kafka message streaming
-- Spark Structured Streaming processing
-- Cassandra real-time storage
-- Airflow DAG orchestration
-- Dockerized infrastructure
+# Real-Time Streaming
+
+Continuously ingests user records from an API and streams them into Kafka.
+
+# Event-Driven Architecture
+
+Uses Kafka as the central message broker to decouple producers from consumers.
+
+# Distributed Stream Processing
+
+Spark Structured Streaming consumes Kafka events and processes data in micro-batches.
+
+# Scalable NoSQL Storage
+
+Processed records are stored in Cassandra for high-write throughput and horizontal scalability.
+
+# Containerized Deployment
+
+All services are deployed and managed through Docker Compose.
 
 ## How to Run
 
-### 1. Clone Repository
+# Clone Repository
+git clone https://github.com/yourusername/realtime-user-streaming-pipeline.git
 
-git clone https://github.com/yourusername/real-time-data-pipeline.git
-
-### 2. Start Docker Containers
-
+cd realtime-user-streaming-pipeline
+# Build Containers
+docker compose build --no-cache
+# Start Platform
 docker compose up -d
 
-### 3. Verify Kafka Topic
+# Verify:
 
-Open:
-http://localhost:9000
+docker ps
+# Access Services
 
-### 4. Create Cassandra Keyspace & Table
+| Service         | URL                                            |
+| --------------- | ---------------------------------------------- |
+| Airflow         | [http://localhost:8080](http://localhost:8080) |
+| Kafdrop         | [http://localhost:9000](http://localhost:9000) |
+| Schema Registry | [http://localhost:8081](http://localhost:8081) |
+| Spark UI        | [http://localhost:8888](http://localhost:8888) |
 
-docker exec -it cassandra cqlsh
+# Trigger Airflow DAG
 
-Then run:
+Run manually:
 
-CREATE KEYSPACE IF NOT EXISTS spark_streams
-WITH replication = {
-  'class': 'SimpleStrategy',
-  'replication_factor': 1
-};
+docker exec airflow-webserver airflow dags trigger api_to_kafka_streaming
 
-CREATE TABLE IF NOT EXISTS spark_streams.created_users (
-    id TEXT PRIMARY KEY,
-    first_name TEXT,
-    last_name TEXT,
-    gender TEXT,
-    address TEXT,
-    post_code TEXT,
-    email TEXT,
-    username TEXT,
-    registered_date TEXT,
-    phone TEXT,
-    picture TEXT
-);
+Or trigger from Airflow UI.
 
-### 5. Run Spark Streaming Job
+Submit Spark Job
+
+Enter Spark container:
 
 docker exec -it spark-master bash
 
+Run:
+
 spark-submit \
 --master spark://spark-master:7077 \
---packages com.datastax.spark:spark-cassandra-connector_2.13:3.4.1,org.apache.spark:spark-sql-kafka-0-10_2.13:3.5.0 \
+--packages com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 \
 /opt/spark_stream/spark_stream.py
 
-### 6. Trigger Airflow DAG
+# Verify Data in Cassandra
 
-Open:
-http://localhost:8080
+- Connect:
+
+docker exec -it cassandra cqlsh
+
+- Query:
+
+SELECT * FROM spark_streams.created_users;
+
+# Expected Result:
+
+<img width="1023" height="340" alt="Screenshot 2026-05-22 041216" src="https://github.com/user-attachments/assets/e888d5b9-6d0e-40ea-9fef-a705de3d5a6f" />
+
+
+id      first_name   last_name
+--------------------------------
+123     John         Doe
+456     Jane         Smith
+Monitoring
+Airflow
+
+Monitor DAG execution status.
+
+Success
+Failed
+Running
+Queued
+Kafdrop
+
+Monitor:
+
+Topics
+Partitions
+Consumer Groups
+Messages
+Spark UI
+
+Monitor:
+
+Executors
+Jobs
+Stages
+Streaming Queries
+Cassandra
+
+Monitor:
+
+SELECT COUNT(*) FROM spark_streams.created_users;
+Engineering Concepts Demonstrated
+Event-Driven Architecture
+Distributed Systems
+Stream Processing
+Workflow Orchestration
+Schema Evolution
+NoSQL Data Modeling
+Containerization
+Service Networking
+Real-Time Data Pipelines
+Fault-Tolerant Processing
