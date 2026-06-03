@@ -109,20 +109,15 @@ docker ps
 docker exec airflow-webserver airflow dags trigger api_to_kafka_streaming
 
 - Or trigger from Airflow UI.
+<img width="1342" height="471" alt="Screenshot 2026-06-03 115425" src="https://github.com/user-attachments/assets/3958634c-2646-4481-aeb5-1fd0e8803daf" />
+
 
 ## Submit Spark Job
 
 - Enter Spark container:
 
-docker exec -it spark-master bash
-
-- Run:
-
-spark-submit \
---master spark://spark-master:7077 \
---packages com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 \
-/opt/spark_stream/spark_stream.py
-
+ docker exec -it spark-master /opt/spark/bin/spark-submit --conf spark.jars.ivy=/tmp/.ivy2 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,com.datastax.spark:spark-cassandra-connector_2.12:3.4.1 /opt/spark_stream/spark_stream.py
+ 
 ### Verify Data in Cassandra
 
 - Connect:
@@ -146,7 +141,9 @@ Success
 Failed
 Running
 Queued
-Kafdrop
+
+<img width="1358" height="541" alt="Screenshot 2026-06-03 115510" src="https://github.com/user-attachments/assets/f9ac9b95-2be8-46ec-8d1a-60349b767cc5" />
+
 
 ## Kafdrop
 - Monitor:
@@ -155,7 +152,10 @@ Topics
 Partitions
 Consumer Groups
 Messages
-Spark UI
+
+<img width="1188" height="613" alt="Screenshot 2026-06-03 115758" src="https://github.com/user-attachments/assets/6a9a2310-f49f-4898-9c43-f7d428582af6" />
+<img width="1155" height="452" alt="Screenshot 2026-06-03 115836" src="https://github.com/user-attachments/assets/1f91a3d0-6729-4fb3-b2b4-23d9fe7995f3" />
+
 
 ## Spark UI
 - Monitor:
@@ -164,7 +164,9 @@ Executors
 Jobs
 Stages
 Streaming Queries
-Cassandra
+
+<img width="1336" height="444" alt="Screenshot 2026-06-03 150034" src="https://github.com/user-attachments/assets/2693400a-0f6d-4690-a7fd-e815b53a550d" />
+
 
 ## Cassandra
 - Monitor:
