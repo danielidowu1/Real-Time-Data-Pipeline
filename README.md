@@ -172,6 +172,7 @@ Streaming Queries
 - Monitor:
 
 SELECT COUNT(*) FROM spark_streams.created_users;
+
 <img width="476" height="123" alt="Screenshot 2026-06-02 072413" src="https://github.com/user-attachments/assets/e6beb77e-4ecc-4b02-8ebd-2a6ecd77f3d3" />
 
 ## Engineering Concepts Demonstrated
