@@ -90,6 +90,9 @@ docker compose build --no-cache
 ### Start Platform
 docker compose up -d
 
+<img width="516" height="193" alt="Screenshot 2026-06-03 134413" src="https://github.com/user-attachments/assets/a4971310-d87d-4f72-98c2-0fc1198da6f6" />
+
+
 - Verify:
 
 docker ps
@@ -193,7 +196,7 @@ Daniel Idowu Damilare
 
 Data Engineer | Business Intelligence Analyst | Cloud Dataplatforms (AWS & DataBricks) | End to End data Pipelines & Solutions
 
-### Email: danielidowudamilare@gmail.com
+Email: danielidowudamilare@gmail.com
 
 LinkedIn: https://www.linkedin.com/in/idowu-daniel-ba99b1270/
 
