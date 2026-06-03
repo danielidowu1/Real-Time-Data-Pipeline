@@ -16,6 +16,7 @@ def create_spark_connection():
             'spark.jars.packages',
             'com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,'
             'org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0') \
+        .config('spark.jars.ivy', '/tmp/.ivy2') \
         .config('spark.cassandra.connection.host', 'cassandra') \
         .config('spark.cassandra.auth.username', CASSANDRA_USER) \
         .config('spark.cassandra.auth.password', CASSANDRA_PASS) \
