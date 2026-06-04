@@ -8,7 +8,7 @@ The solution continuously ingests user data from an external API, streams the da
 
 The entire platform is containerized using Docker Compose, enabling reproducible deployments and simplified environment management.
 
-## Architecture
+## Pipeline Architecture
 
 <img width="1536" height="1024" alt="ChatGPT Image Jun 2, 2026, 06_30_30 AM" src="https://github.com/user-attachments/assets/e829ec42-44f9-4e52-8b9a-9cd2f967d834" />
 
