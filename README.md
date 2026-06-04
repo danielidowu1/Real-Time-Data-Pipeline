@@ -10,7 +10,7 @@ The entire platform is containerized using Docker Compose, enabling reproducible
 
 ## Pipeline Architecture
 
-<img width="1536" height="1024" alt="ChatGPT Image Jun 2, 2026, 06_30_30 AM" src="https://github.com/user-attachments/assets/e829ec42-44f9-4e52-8b9a-9cd2f967d834" />
+<img width="1264" height="843" alt="IMG_3408" src="https://github.com/user-attachments/assets/55975abf-ba60-4611-9574-e7d3bcdc4701" />
 
 
 
