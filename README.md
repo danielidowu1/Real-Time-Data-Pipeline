@@ -1,5 +1,4 @@
-# Real-Time-Data-Pipeline with Airflow, Kaafka, Spark & Cassandra
-## Real-Time User Data Streaming Pipeline
+# Real-Time-Data-Pipeline with Airflow, Kafka, Spark & Cassandra
 ## Overview
 
 This project implements a real-time end-to-end data streaming platform using Apache Airflow, Apache Kafka, Apache Spark, Cassandra, PostgreSQL, Docker, and Confluent components.
