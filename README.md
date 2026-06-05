@@ -203,7 +203,7 @@ Fault-Tolerant Processing
 
 Daniel Idowu Damilare
 
-Data Engineer | Business Intelligence Analyst | Cloud Dataplatforms (AWS & DataBricks) | End to End data Pipelines & Solutions
+Data Engineer | Business Intelligence Analyst | Cloud Data Platforms (AWS & DataBricks) | End to End data Pipelines & Solutions
 
 Email: danielidowudamilare@gmail.com
 
