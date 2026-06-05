@@ -101,7 +101,7 @@ docker compose up -d
 
 docker ps
 
-- Or view container in Docker
+- Or monitor container in Docker
 
 <img width="1349" height="710" alt="Screenshot 2026-06-05 092019" src="https://github.com/user-attachments/assets/ae4550e8-82ff-4dcc-b034-c03a7f97f187" />
 
