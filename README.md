@@ -94,7 +94,7 @@ docker compose build --no-cache
 ### Start Platform
 docker compose up -d
 
-<img width="516" height="193" alt="Screenshot 2026-06-03 134413" src="https://github.com/user-attachments/assets/a4971310-d87d-4f72-98c2-0fc1198da6f6" />
+<img width="841" height="199" alt="image" src="https://github.com/user-attachments/assets/30c20a1e-2818-49fa-8c49-924eae50a196" />
 
 
 - Verify:
