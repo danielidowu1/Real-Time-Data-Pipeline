@@ -1,13 +1,1 @@
-# Airflow Admin Web Server Credentials
-AIRFLOW_ADMIN_USER= admin_go
-AIRFLOW_ADMIN_PASSWORD= airflow_go
-AIRFLOW_WEBSERVER_SECRET_KEY= this_is_a_very_secured_key 
-
-# PostgreSQL Credentials
-POSTGRES_USER= airflow_go
-POSTGRES_PASSWORD= airflow
-POSTGRES_DB= airflow
-
-# Cassandra Credentials
-CASSANDRA_USER=cassandra_go
-CASSANDRA_PASSWORD= cassandra_go
+.env
